@@ -1,3 +1,21 @@
+const run = () => {
+    const inArr = input.split("\n").map(i => parseInt(i));
+
+    let elfAmount = []
+    let elfIndex = 0;
+    for(const i of inArr){
+        if(isNaN(i)){
+            elfIndex +=1
+        } else {
+            elfAmount[elfIndex] ? elfAmount[elfIndex] += i : elfAmount[elfIndex] = i;
+        }
+    }
+    const max = Math.max(...elfAmount)
+    const e2 = elfAmount.sort((a,b) => b-a);
+    const answer = e2[0]+e2[1]+e2[2]
+    answer
+}
+
 
 const input = `7769
 6798
@@ -2250,21 +2268,5 @@ const input = `7769
 4832
 3159`
 
-const run = () => {
-    const inArr = input.split("\n").map(i => parseInt(i));
-
-    let elfAmount = []
-    let elfIndex = 0;
-    for(const i of inArr){
-        if(isNaN(i)){
-            elfIndex +=1
-        } else {
-            elfAmount[elfIndex] ? elfAmount[elfIndex] += i : elfAmount[elfIndex] = i;
-        }
-    }
-    const max = Math.max(...elfAmount)
-    const e2 = elfAmount.sort((a,b) => b-a);
-    const answer = e2[0]+e2[1]+e2[2]
-}
 
 run();
