@@ -30,7 +30,13 @@ const run = () => {
         actualCode = asciiVal >=97 ? asciiVal-96 : asciiVal - 38
         return acc += actualCode;
     }
+
+    const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const alternateScore = (acc, v)  => {
+        return acc += letters.indexOf(v)+1;
+    }
     const ans = foundSet.reduce(score, 0)
+    const ansAlt = foundSet.reduce(alternateScore, 0)
     const foundAns2Set = [];
     setsOf3.forEach(set => {
         let found = false;
@@ -46,6 +52,7 @@ const run = () => {
         })
     })
     const ans2 = foundAns2Set.reduce(score, 0)
+    const ans2alternte = foundAns2Set.reduce(alternateScore, 0)
 }
 
 
